@@ -1,6 +1,8 @@
 # EE2026
 Contains 5 different branches
 
+All assignments and projects are coded in Verilog.
+
 -assignment 1
 
 -assignment 2
