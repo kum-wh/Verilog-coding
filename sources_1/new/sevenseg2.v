@@ -1,16 +1,12 @@
 `timescale 1ns / 1ps
 
-module sevenseg( input clock, start, output reg index = 0, reg [3:0]an = 4'b1111, reg [6:0]seg = 7'b0);
+module sevenseg2( input clock, start, output reg [3:0]an = 4'b0, reg [6:0]seg = 7'b0);
     wire C;
     reg [2:0] COUNT = 3'b0;
-    segclock clock1(clock, start, C);
-    
-    always @ (posedge clock) begin
-        index <= (COUNT==3'b101)?1:index;
-    end
+    segclock2 clock1(clock, start, C);
     
     always @ (posedge C) begin
-        COUNT <= COUNT + 1;
+        COUNT <= (COUNT==3'b100)?3'b000:COUNT + 1;
         case(COUNT)
         3'b000:
             begin
